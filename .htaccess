@@ -1,0 +1,7 @@
+# Turn rewrite engine on
+Options +FollowSymlinks
+RewriteEngine on
+
+# map neat URL to internal URL
+RewriteRule ^students/list/$   getStudent.php?view=all [nc,qsa]
+RewriteRule ^students/list/([0-9]+)/$   getStudent.php?view=single&id=$1 [nc,qsa]

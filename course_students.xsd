@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="Course" type="CourseType"/>
+<xs:complexType name="studentType">
+<xs:sequence>
+<xs:element type="xs:string" name="name"/>
+<xs:element type="EmailValidation" name="email"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CourseType">
+<xs:sequence>
+<xs:element type="studentType" name="student" maxOccurs="unbounded" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="EmailValidation">
+<xs:restriction base="xs:string">
+<xs:pattern value="[A-Za-z0-9_]+([-+.'][A-Za-z0-9_]+)
+*@[A-Za-z0-9_]+([-.][A-Za-z0-9_]+)*\.[A-Za-z0-9_]+([-.][A-Za-z0-9_]+)*"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
